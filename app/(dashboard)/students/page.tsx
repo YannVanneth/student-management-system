@@ -1,16 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import {
-  ChevronDown,
-  Download,
-  Filter,
-  Plus,
-  Search,
-  SlidersHorizontal,
-  Trash2,
-  UserPlus,
-} from "lucide-react";
+import { ChevronDown, Download, Filter, Search, UserPlus } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
