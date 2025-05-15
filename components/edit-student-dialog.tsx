@@ -46,30 +46,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Student } from "@/const/student";
 import { useUpdateStudentMutation } from "@/services/api";
 import { toast } from "sonner";
-
-const genders = [
-  { label: "Male", value: "male" },
-  { label: "Female", value: "female" },
-  { label: "Other", value: "other" },
-];
-
-const grades = [
-  { label: "Grade 9", value: "9" },
-  { label: "Grade 10", value: "10" },
-  { label: "Grade 11", value: "11" },
-  { label: "Grade 12", value: "12" },
-];
-
-const sections = [
-  { label: "Section A", value: "A" },
-  { label: "Section B", value: "B" },
-  { label: "Section C", value: "C" },
-];
-
-const statuses = [
-  { label: "Active", value: "active" },
-  { label: "Inactive", value: "inactive" },
-];
+import { DATA } from "@/data/data";
 
 const formSchema = z.object({
   id: z.string().optional(),
@@ -165,28 +142,19 @@ export function EditStudentDialog({
   async function onSubmit(data: StudentFormValues) {
     setIsSubmitting(true);
 
-    console.log("Submitting form data:", JSON.stringify(data));
-
     const res = await editStudent(data);
-
-    if (res.error) {
-      console.error("Error updating student:", res.error);
-      setIsSubmitting(false);
-      return;
-    }
-
-    console.log("res:", res.data);
 
     setIsSubmitting(false);
     onOpenChange(false);
     form.reset();
+
     if (isSuccess) {
-      toast.success("Student updated successfully", {
+      toast.success(res.data.data.message, {
         style: {
           backgroundColor: "green",
           color: "white",
         },
-        duration: 2500,
+        duration: 8000,
       });
     }
     if (isError) {
@@ -309,7 +277,7 @@ export function EditStudentDialog({
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          {genders.map((gender) => (
+                          {DATA.genders.map((gender) => (
                             <SelectItem key={gender.value} value={gender.value}>
                               {gender.label}
                             </SelectItem>
@@ -387,7 +355,7 @@ export function EditStudentDialog({
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          {grades.map((grade) => (
+                          {DATA.grade.map((grade) => (
                             <SelectItem key={grade.value} value={grade.value}>
                               {grade.label}
                             </SelectItem>
@@ -415,7 +383,7 @@ export function EditStudentDialog({
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          {sections.map((section) => (
+                          {DATA.section.map((section) => (
                             <SelectItem
                               key={section.value}
                               value={section.value}

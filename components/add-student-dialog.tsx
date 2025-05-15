@@ -2,7 +2,7 @@
 
 import type React from "react";
 
-import { use, useState } from "react";
+import { useState } from "react";
 import { CalendarIcon, Loader2, UserPlus } from "lucide-react";
 import { format } from "date-fns";
 
@@ -45,25 +45,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useAddStudentMutation } from "@/services/api";
 import { toast } from "sonner";
-
-const genders = [
-  { label: "Male", value: "male" },
-  { label: "Female", value: "female" },
-  { label: "Other", value: "other" },
-];
-
-const grades = [
-  { label: "Grade 9", value: "9" },
-  { label: "Grade 10", value: "10" },
-  { label: "Grade 11", value: "11" },
-  { label: "Grade 12", value: "12" },
-];
-
-const sections = [
-  { label: "Section A", value: "A" },
-  { label: "Section B", value: "B" },
-  { label: "Section C", value: "C" },
-];
+import { DATA } from "@/data/data";
 
 const formSchema = z.object({
   first_name: z.string().min(1, "First name is required"),
@@ -146,7 +128,7 @@ export function AddStudentDialog({ trigger }: AddStudentDialogProps) {
             backgroundColor: "green",
             color: "white",
           },
-          duration: 4500,
+          duration: 8000,
         });
       }
     } catch (error) {
@@ -260,7 +242,7 @@ export function AddStudentDialog({ trigger }: AddStudentDialogProps) {
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          {genders.map((gender) => (
+                          {DATA.genders.map((gender) => (
                             <SelectItem key={gender.value} value={gender.value}>
                               {gender.label}
                             </SelectItem>
@@ -335,7 +317,7 @@ export function AddStudentDialog({ trigger }: AddStudentDialogProps) {
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          {grades.map((grade) => (
+                          {DATA.grade.map((grade) => (
                             <SelectItem key={grade.value} value={grade.value}>
                               {grade.label}
                             </SelectItem>
@@ -363,7 +345,7 @@ export function AddStudentDialog({ trigger }: AddStudentDialogProps) {
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          {sections.map((section) => (
+                          {DATA.section.map((section) => (
                             <SelectItem
                               key={section.value}
                               value={section.value}
@@ -516,7 +498,11 @@ export function AddStudentDialog({ trigger }: AddStudentDialogProps) {
               >
                 Cancel
               </Button>
-              <Button type="submit" disabled={isSubmitting}>
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                onClick={() => onSubmit(form.getValues())}
+              >
                 {isSubmitting && (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                 )}

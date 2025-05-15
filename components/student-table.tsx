@@ -176,12 +176,17 @@ export function StudentTable({ searchQuery }: StudentTableProps) {
         "status" in res.error
           ? `Error ${res.error.status}: ${JSON.stringify(res.error.data)}`
           : res.error.message || "An unknown error occurred";
-      console.log(errorMessage);
     }
 
     if (res.data) {
-      const successMessage = res.data.message;
-      alert(successMessage);
+      const successMessage = res.data.data["message"];
+      toast.success(successMessage, {
+        style: {
+          backgroundColor: "green",
+          color: "white",
+        },
+        duration: 8000,
+      });
     }
   }
 
@@ -347,16 +352,7 @@ export function StudentTable({ searchQuery }: StudentTableProps) {
       <ConfirmDialog
         open={openDelete}
         onChange={setOpenDelete}
-        onConfirm={() => {
-          handleDelete(selectedStudents!.id);
-          toast.success("Student deleted successfully", {
-            style: {
-              backgroundColor: "green",
-              color: "white",
-            },
-            duration: 2500,
-          });
-        }}
+        onConfirm={() => handleDelete(selectedStudents!.id)}
       />
 
       <div className="flex items-center justify-between px-4 py-4 border-t">
