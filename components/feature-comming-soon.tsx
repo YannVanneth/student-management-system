@@ -8,6 +8,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import Image from "next/image";
 
 const image_url: string =
   "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjZob2dobW5ubmEyeHZqYjU1NnA1YmE1eGt5NTQ0cW0yYmhwN3phMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1ken0zzzL79NPy3QZj/giphy.gif";
@@ -27,7 +28,13 @@ export default function UpComingFeatures({
             This feature is coming soon. Please check back later.
           </DialogDescription>
         </DialogHeader>
-        <img src={image_url} alt="coming soon" className="rounded-lg" />
+        <Image
+          src={image_url}
+          alt="coming soon"
+          className="rounded-lg"
+          height={400}
+          width={400}
+        />
       </DialogContent>
     </Dialog>
   );

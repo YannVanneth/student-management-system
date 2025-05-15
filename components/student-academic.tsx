@@ -160,7 +160,7 @@ export function StudentAcademic({ studentId }: StudentAcademicProps) {
           <CardHeader>
             <CardTitle>Exam Results</CardTitle>
             <CardDescription>
-              View student's performance in examinations.
+              {"View student's performance in examinations."}
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -276,7 +276,7 @@ export function StudentAcademic({ studentId }: StudentAcademicProps) {
           <CardHeader>
             <CardTitle>Assignments</CardTitle>
             <CardDescription>
-              View student's assignments and submissions.
+              {"View student's assignments and submissions."}
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -324,7 +324,7 @@ export function StudentAcademic({ studentId }: StudentAcademicProps) {
           <CardHeader>
             <CardTitle>Academic Performance</CardTitle>
             <CardDescription>
-              View student's overall academic performance.
+              {"View student's overall academic performance."}
             </CardDescription>
           </CardHeader>
           <CardContent>

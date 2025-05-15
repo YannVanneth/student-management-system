@@ -8,7 +8,6 @@ import { FaChalkboardTeacher } from "react-icons/fa";
 
 import { NavMain } from "@/components/nav-main";
 import { NavProjects } from "@/components/nav-projects";
-import { NavUser } from "@/components/nav-user";
 import {
   Sidebar,
   SidebarContent,
@@ -19,7 +18,6 @@ import {
   SidebarMenuItem,
   SidebarRail,
 } from "@/components/ui/sidebar";
-import Link from "next/link";
 import RuppLogo from "./rupp_logo";
 
 const data = {
@@ -29,6 +27,13 @@ const data = {
     avatar: "/avatars/shadcn.jpg",
   },
   navMain: [
+    {
+      title: "Dashboard",
+      url: "#",
+      icon: PieChart,
+      isActive: false,
+      items: [],
+    },
     {
       title: "Students Management",
       url: "/students",

@@ -112,21 +112,6 @@ export function StudentDetails({ studentId }: StudentDetailsProps) {
           </Button>
           <h1 className="text-2xl font-bold tracking-tight">Student Details</h1>
         </div>
-        <div className="flex items-center gap-2">
-          <Button variant="outline" size="sm">
-            <Download className="mr-2 h-4 w-4" />
-            Export
-          </Button>
-          <EditStudentDialog
-            student={student}
-            trigger={
-              <Button size="sm">
-                <Edit className="mr-2 h-4 w-4" />
-                Edit Student
-              </Button>
-            }
-          />
-        </div>
       </div>
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-3">

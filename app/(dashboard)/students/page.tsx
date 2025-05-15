@@ -21,15 +21,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { StudentTable } from "@/components/student-table";
 import { StudentFilters } from "@/components/student-filters";
 import { AddStudentDialog } from "@/components/add-student-dialog";
@@ -148,7 +139,4 @@ export default function StudentPage() {
       </CardContent>
     </Card>
   );
-}
-function useStudentListQuery(): { data: any; error: any; isLoading: any } {
-  throw new Error("Function not implemented.");
 }

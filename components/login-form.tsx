@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import Image from "next/image";
 
 const ruppLogo: string = "https://www.rupp.edu.kh/logo/rupp_logo.png";
 
@@ -19,7 +20,7 @@ export function LoginForm({
     <form className={cn("flex flex-col gap-6", className)} {...props}>
       <div className="flex flex-col items-center gap-2 text-center">
         <div className="h-24 w-24 rounded-full">
-          <img src={ruppLogo} alt="" />
+          <Image src={ruppLogo} alt="royal university of phnom penh" fill />
         </div>
         <h1 className="text-2xl font-bold">Login to your account</h1>
         <p className="text-balance text-sm text-muted-foreground">

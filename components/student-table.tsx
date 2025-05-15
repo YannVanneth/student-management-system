@@ -64,11 +64,35 @@ export function StudentTable({ searchQuery }: StudentTableProps) {
       "status" in error
         ? `Error ${error.status}: ${JSON.stringify(error.data)}`
         : error.message || "An unknown error occurred";
-    return <div>{errorMessage}</div>;
+    return (
+      <div className="rounded-md border">
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead colSpan={7} className="h-24 text-center">
+                {errorMessage}
+              </TableHead>
+            </TableRow>
+          </TableHeader>
+        </Table>
+      </div>
+    );
   }
 
   if (!data) {
-    return <div>No data found</div>;
+    return (
+      <div className="rounded-md border">
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead colSpan={7} className="h-24 text-center">
+                No students found.
+              </TableHead>
+            </TableRow>
+          </TableHeader>
+        </Table>
+      </div>
+    );
   } else {
     var students: any = data["data"]["students"];
   }

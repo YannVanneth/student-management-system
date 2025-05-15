@@ -1,7 +1,7 @@
 "use client";
-
-import LoginPage from "./auth/page";
+import "./globals.css";
+import Page from "./(dashboard)/page";
 
 export default function App() {
-  return <LoginPage />;
+  return <Page />;
 }
