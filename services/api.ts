@@ -4,7 +4,7 @@ export const api = createApi({
   reducerPath: "api",
    tagTypes: ['Students'],
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://localhost/backend/api/student",
+    baseUrl: "https://student-management-system-3hvp.onrender.com/api/student",
   }),
   endpoints: (builder) => ({
     getAllStudentWithoutPagination: builder.query({
