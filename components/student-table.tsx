@@ -296,7 +296,7 @@ export function StudentTable({ searchQuery }: StudentTableProps) {
                   {student.academic_info.grade}
                 </TableCell>
                 <TableCell>{student.academic_info.section}</TableCell>
-                <TableCell>{student.academic_info.gender ?? "male"}</TableCell>
+                <TableCell>{student.personal_info.gender ?? "male"}</TableCell>
                 <TableCell className="hidden md:table-cell">
                   {student.personal_info.contact_number ?? "N/A"}
                 </TableCell>
